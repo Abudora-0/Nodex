@@ -1,0 +1,78 @@
+:root,
+:root[data-theme="ink"] {
+  color-scheme: dark;
+  --canvas: #0f1211;
+  --canvas-dot: #242b28;
+  --surface: #161a19;
+  --surface-2: #1b201e;
+  --raise: #222826;
+  --line: #2a312e;
+  --line-strong: #3b4541;
+  --text: #e9e4d6;
+  --muted: #8b918a;
+  --faint: #5d645f;
+
+  --choice: #ff6a48;
+  --choice-soft: rgba(255, 106, 72, 0.14);
+  --save: #5db39f;
+  --save-soft: rgba(93, 179, 159, 0.14);
+  --ending: #ddb257;
+  --ending-soft: rgba(221, 178, 87, 0.14);
+  --label: #a9b4d6;
+  --danger: #e5484d;
+  --danger-soft: rgba(229, 72, 77, 0.14);
+
+  --eng-renpy: var(--choice);
+  --eng-rpgmaker: var(--ending);
+  --eng-unity: #7fa8c9;
+
+  --paper: #efe9da;
+  --paper-ink: #1e1b16;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.4), 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  --scroll-thumb: #38413d;
+  --scroll-thumb-hover: #4b5651;
+  --selection: rgba(93, 179, 159, 0.3);
+}
+
+:root[data-theme="paper"] {
+  color-scheme: light;
+  --canvas: #f3eee3;
+  --canvas-dot: #d8cfbc;
+  --surface: #fbf8f1;
+  --surface-2: #f5f0e5;
+  --raise: #fffdf8;
+  --line: #e0d7c5;
+  --line-strong: #c5baa4;
+  --text: #1e1b16;
+  --muted: #6b6457;
+  --faint: #a2998a;
+
+  --choice: #c9432a;
+  --choice-soft: rgba(201, 67, 42, 0.1);
+  --save: #2f7f6e;
+  --save-soft: rgba(47, 127, 110, 0.1);
+  --ending: #a67c1e;
+  --ending-soft: rgba(166, 124, 30, 0.12);
+  --label: #4a5a8c;
+  --danger: #c62f34;
+  --danger-soft: rgba(198, 47, 52, 0.1);
+
+  --eng-unity: #3f6f93;
+
+  --paper: #fffdf8;
+  --paper-ink: #1e1b16;
+  --shadow: 0 1px 0 rgba(60, 45, 20, 0.08), 0 12px 28px -14px rgba(60, 45, 20, 0.35);
+  --scroll-thumb: #cfc4ae;
+  --scroll-thumb-hover: #b6aa92;
+  --selection: rgba(47, 127, 110, 0.22);
+}
+
+:root {
+  --font-display: "Fraunces Variable", "Iowan Old Style", Georgia, serif;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", Consolas, "Cascadia Mono", monospace;
+  --radius: 4px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --rail-h: 52px;
+  --status-h: 28px;
+}
