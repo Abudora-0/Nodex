@@ -14,6 +14,9 @@ for Ren'Py, RPG Maker MV/MZ and Unity games. Entirely on your own machine.
 ![Python](https://img.shields.io/badge/python-3.11%2B-3b4541)
 ![Platform](https://img.shields.io/badge/platform-Windows-3b4541)
 ![Tauri](https://img.shields.io/badge/desktop-Tauri%202-ff6a48)
+[![Website](https://img.shields.io/badge/website-nodexx.vercel.app-e9e4d6)](https://nodexx.vercel.app)
+
+**[Website](https://nodexx.vercel.app)** · **[Download](https://github.com/Abudora-0/Nodex/releases/latest)** · **[Engine notes](docs/engines.md)**
 
 <img src="docs/screenshots/saves.png" alt="Nodex game view: a game hub, its save location, and saves laid out as polaroids on a timeline" width="100%" />
 
@@ -106,7 +109,7 @@ save (130) round-trips cleanly, and 1,013 menus were mapped across 10 installed 
 
 ### Desktop app (Windows)
 
-Download the `.msi` or the setup `.exe` from [Releases](https://github.com/Abudora-0/Nodex/releases) and run it.
+Download the `.msi` or the setup `.exe` from [the website](https://nodexx.vercel.app) or [Releases](https://github.com/Abudora-0/Nodex/releases) and run it.
 The app bundles its own engine; no Python or Node is needed.
 
 ### From source
