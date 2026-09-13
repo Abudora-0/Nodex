@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: frontend/src-tauri
+
+      - name: Freeze the engine sidecar
+        working-directory: backend
+        run: |
+          python -m pip install -e . pyinstaller
+          python -m PyInstaller packaging/nodex-sidecar.spec --noconfirm --distpath build/sidecar --workpath build/pyi
+
+      - name: Place the sidecar for Tauri
+        shell: pwsh
+        run: |
+          $triple = ((rustc -vV) | Select-String "^host:").ToString().Split(" ")[1].Trim()
+          New-Item -ItemType Directory -Force frontend/src-tauri/binaries | Out-Null
+          Copy-Item backend/build/sidecar/nodex-sidecar.exe "frontend/src-tauri/binaries/nodex-sidecar-$triple.exe"
+
+      - name: Install frontend
+        working-directory: frontend
+        run: npm ci
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: frontend
+          tagName: ${{ github.ref_name }}
+          releaseName: "Nodex ${{ github.ref_name }}"
+          releaseBody: "Download the .msi or the setup .exe below. Every write Nodex makes is verified by a round trip and backed up first."
+          releaseDraft: true
+          prerelease: false
