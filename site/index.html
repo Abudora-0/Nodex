@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nodex: a story graph for visual novel saves</title>
+    <meta name="description" content="Edit variables, repair corrupted saves, compare playthroughs and map every choice for Ren'Py, RPG Maker and Unity visual novels. Free, open source, runs entirely on your machine." />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0f1211" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nodex: a story graph for visual novel saves" />
+    <meta property="og:description" content="Edit, repair, compare and map every choice in Ren'Py, RPG Maker and Unity saves. Every write is verified and backed up." />
+    <meta property="og:image" content="/assets/saves.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="#top" aria-label="Nodex home">
+        <img src="/favicon.svg" alt="" width="26" height="26" />
+        <span>Nodex</span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="#features">Features</a>
+        <a href="#safety">Safety</a>
+        <a href="#engines">Engines</a>
+        <a href="#tour">Tour</a>
+        <a class="gh" href="https://github.com/Abudora-0/Nodex">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker"><span class="dot"></span> v0.1.0 for Windows, free and open source</p>
+          <h1>Every save is a <em>point</em> on a story.</h1>
+          <p class="lede">
+            Nodex opens Ren'Py, RPG Maker and Unity visual novel saves as a graph you can walk through. Edit variables,
+            repair broken saves, compare playthroughs and see exactly where each choice leads. Nothing leaves your machine.
+          </p>
+          <div class="cta">
+            <a class="btn accent" href="https://github.com/Abudora-0/Nodex/releases/latest/download/Nodex_0.1.0_x64-setup.exe">
+              Download for Windows
+            </a>
+            <a class="btn" href="https://github.com/Abudora-0/Nodex/releases/latest/download/Nodex_0.1.0_x64_en-US.msi">.msi installer</a>
+            <a class="btn ghost" href="https://github.com/Abudora-0/Nodex">View source</a>
+          </div>
+          <p class="fine">24 MB. No account, no telemetry, no uploads.</p>
+        </div>
+
+        <figure class="hero-graph" aria-hidden="true">
+          <svg viewBox="0 0 560 420" role="img">
+            <defs>
+              <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+                <circle cx="1.5" cy="1.5" r="1.2" fill="var(--canvas-dot)" />
+              </pattern>
+            </defs>
+            <rect width="560" height="420" fill="url(#dots)" />
+            <g class="edges">
+              <path d="M110 92 C 170 92, 170 160, 230 160" />
+              <path d="M320 160 C 370 160, 370 96, 420 96" class="lit" />
+              <path d="M320 160 C 370 160, 370 222, 420 222" />
+              <path d="M542 96 C 552 96, 552 336, 492 336" class="lit" />
+              <path d="M110 92 C 110 200, 150 300, 220 318" class="call" />
+            </g>
+            <g class="node label" transform="translate(40 76)">
+              <rect width="120" height="32" rx="16" />
+              <text x="60" y="21">§ start</text>
+            </g>
+            <g class="node menu" transform="translate(222 130)">
+              <path d="M12 0 H150 V62 H0 V12 Z" />
+              <rect x="16" y="15" width="7" height="7" transform="rotate(45 19.5 18.5)" class="diamond" />
+              <text x="32" y="23" class="k">CHOICE POINT</text>
+              <text x="16" y="46" class="t">the harbour</text>
+            </g>
+            <g class="node choice lit" transform="translate(412 70)">
+              <rect width="130" height="52" rx="4" />
+              <text x="14" y="22" class="t">Signal the ship</text>
+              <text x="14" y="41" class="fx">+2 trust_mira</text>
+            </g>
+            <g class="node choice" transform="translate(412 198)">
+              <rect width="108" height="48" rx="4" />
+              <text x="14" y="29" class="t">Stay silent</text>
+            </g>
+            <g class="node ending" transform="translate(456 336)">
+              <circle r="36" />
+              <circle r="30" class="inner" />
+              <text y="-2">good</text>
+              <text y="12">ending</text>
+            </g>
+            <g class="polaroid" transform="translate(186 286) rotate(-4)">
+              <rect width="96" height="92" rx="2" class="frame" />
+              <rect x="7" y="7" width="82" height="54" class="sky" />
+              <rect x="7" y="44" width="82" height="17" class="sea" />
+              <rect x="44" y="24" width="6" height="26" class="tower" />
+              <circle cx="47" cy="23" r="9" class="glow" />
+              <text x="9" y="78">before the storm</text>
+            </g>
+          </svg>
+        </figure>
+      </section>
+
+      <section class="shot-frame" aria-label="Nodex screenshot">
+        <img src="/assets/saves.png" alt="Nodex showing a game hub, its save location and five saves laid out as photos on a timeline" width="2000" height="1200" />
+      </section>
+
+      <section id="features" class="section">
+        <header class="section-head">
+          <p class="kicker">What it does</p>
+          <h2>A save editor that understands the story around the save.</h2>
+        </header>
+        <div class="features">
+          <article>
+            <span class="glyph g-save">▣</span>
+            <h3>Saves on a timeline</h3>
+            <p>Each save becomes a card with its own screenshot, in the order you played. Shift click two to compare, Ctrl click several to edit together.</p>
+          </article>
+          <article>
+            <span class="glyph g-choice">◇</span>
+            <h3>The choice map</h3>
+            <p>Every menu in a Ren'Py game as a graph of labels, options and endings. Click a choice to light up where it goes and how you got there.</p>
+          </article>
+          <article>
+            <span class="glyph">=</span>
+            <h3>Thousands of variables, calmly</h3>
+            <p>A virtualized grid with fuzzy search, typed editors and keyboard control. Focus mode hands it the whole window.</p>
+          </article>
+          <article>
+            <span class="glyph g-save">⇄</span>
+            <h3>Compare and bulk edit</h3>
+            <p>Diff two saves, or a save against any backup. Apply one change to many saves after a dry run, or reuse it as a named preset.</p>
+          </article>
+          <article>
+            <span class="glyph g-choice">⌕</span>
+            <h3>Find anything</h3>
+            <p>Ctrl K searches games, saves, variables, labels and commands, or opens any folder you paste into it.</p>
+          </article>
+          <article>
+            <span class="glyph g-gilt">✦</span>
+            <h3>Repair, walkthroughs, galleries</h3>
+            <p>Rebuild corrupted Ren'Py saves, add an in-game walkthrough or export an HTML guide, and unlock galleries without wiping them.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="safety" class="section safety">
+        <header class="section-head">
+          <p class="kicker">Why you can trust it</p>
+          <h2>Nothing is written unless it reads back identical.</h2>
+          <p class="sub">A save can be hours of someone's progress. Every write in Nodex follows the same path, and any step that fails leaves your file untouched.</p>
+        </header>
+        <ol class="path">
+          <li><b>Read</b><span>Decode the save without running the game's code.</span></li>
+          <li><b>Change</b><span>Apply your edits, keeping each value's original type.</span></li>
+          <li><b>Round trip</b><span>Re-encode, reload, and compare the whole structure.</span></li>
+          <li><b>Back up</b><span>Copy the original into a timestamped vault.</span></li>
+          <li><b>Write</b><span>Swap the new file in atomically, and log it for undo.</span></li>
+        </ol>
+        <div class="stats">
+          <div><b>1,406</b><span>Ren'Py saves round-tripped</span></div>
+          <div><b>833</b><span>RPG Maker saves round-tripped</span></div>
+          <div><b>130</b><span>Unity saves round-tripped</span></div>
+          <div><b>1,013</b><span>menus mapped across 10 games</span></div>
+        </div>
+      </section>
+
+      <section id="engines" class="section">
+        <header class="section-head">
+          <p class="kicker">Supported engines</p>
+          <h2>Three engines, one canvas.</h2>
+        </header>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Engine</th><th>Formats</th><th>Edit</th><th>Compare</th><th>Repair</th><th>Choice map</th><th>Gallery</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="eng renpy"></span>Ren'Py 7 and 8</td><td class="mono">.save .rpyc .rpa persistent</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+              <tr><td><span class="eng rpg"></span>RPG Maker MV and MZ</td><td class="mono">.rpgsave .rmmzsave</td><td>●</td><td>●</td><td></td><td></td><td></td></tr>
+              <tr><td><span class="eng unity"></span>Unity: Naninovel, JSON</td><td class="mono">.nson .json .savefile .dat</td><td>●</td><td>●</td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Encrypted Unity saves are detected and reported, never guessed at.</p>
+      </section>
+
+      <section id="tour" class="section">
+        <header class="section-head">
+          <p class="kicker">A short tour</p>
+          <h2>Dark ink or light paper.</h2>
+        </header>
+        <div class="tour">
+          <figure><img src="/assets/choice-map.png" alt="Choice map tracing a path from a choice" loading="lazy" /><figcaption>Trace a choice to its ending</figcaption></figure>
+          <figure><img src="/assets/compare.png" alt="Two saves compared" loading="lazy" /><figcaption>See what changed between two saves</figcaption></figure>
+          <figure><img src="/assets/palette.png" alt="Command palette" loading="lazy" /><figcaption>Find anything with Ctrl K</figcaption></figure>
+          <figure><img src="/assets/paper.png" alt="Light paper theme" loading="lazy" /><figcaption>The paper theme</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section closing">
+        <h2>Your saves stay yours.</h2>
+        <p>Nodex runs on your computer and never uploads game files. It is MIT licensed, and the source is on GitHub.</p>
+        <div class="cta center">
+          <a class="btn accent" href="https://github.com/Abudora-0/Nodex/releases/latest/download/Nodex_0.1.0_x64-setup.exe">Download for Windows</a>
+          <a class="btn ghost" href="https://github.com/Abudora-0/Nodex#from-source">Run from source</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>Nodex, MIT License</span>
+      <span>For your own saves and games you own. Not affiliated with Ren'Py, RPG Maker, Unity or Naninovel.</span>
+      <a href="https://github.com/Abudora-0/Nodex">GitHub</a>
+    </footer>
+  </body>
+</html>
